@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\external",
+    "\\external\\glad",
+    "\\sources"
   ],
-  "SelectedNode": "\\CMakeLists.txt",
+  "SelectedNode": "\\sources\\main.cpp",
   "PreviewInSolutionExplorer": false
 }

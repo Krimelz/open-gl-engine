@@ -1,6 +1,8 @@
-﻿#include "open-gl-engine.h"
+#include <iostream>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
-int main()
+int main(int argc, char* argv[])
 {
 	if (!glfwInit())
 	{
@@ -24,7 +26,7 @@ int main()
 		return -1;
 	}
 
-	glClearColor(1.0, 1.0, 0.2, 1.0);
+	glClearColor(1.f, 1.f, 0.f, 1.f);
 
 	while (!glfwWindowShouldClose(window))
 	{
