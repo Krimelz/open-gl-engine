@@ -1,42 +1,20 @@
-#include <iostream>
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
+#define GLFW_INCLUDE_NONE
+
+#include "../headers/app/app.hpp"
 
 int main(int argc, char* argv[])
 {
-	if (!glfwInit())
-	{
-		std::cerr << "glfw init error!" << std::endl;
-		return -1;
-	}
+	gle::Window* window = new gle::Window(400, 400, "Game");
+	gle::Renderer* renderer = new gle::Renderer(window);
+	gle::Input* input = new gle::Input(window);
+	gle::App* app = new gle::App(window, renderer, input);
 
-	GLFWwindow* window = glfwCreateWindow(640, 480, "Open GL Engine", nullptr, nullptr);
+	app->Run();
 
-	if (!window)
-	{
-		std::cerr << "glfw create window error!" << std::endl;
-		return -1;
-	}
-
-	glfwMakeContextCurrent(window);
-
-	if (!gladLoadGL())
-	{
-		std::cerr << "glad load error!" << std::endl;
-		return -1;
-	}
-
-	glClearColor(1.f, 1.f, 0.f, 1.f);
-
-	while (!glfwWindowShouldClose(window))
-	{
-		glClear(GL_COLOR_BUFFER_BIT);
-		glfwSwapBuffers(window);
-		glfwPollEvents();
-	}
-
-	glfwDestroyWindow(window);
-	glfwTerminate();
+	delete(app);
+	delete(input);
+	delete(renderer);
+	delete(window);
 
 	return 0;
 }
